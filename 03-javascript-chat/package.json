@@ -1,0 +1,16 @@
+{
+  "name": "03-javascript-chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "source": "index.html",
+  "scripts": {
+    "dev": "parcel"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.7.0",
+    "uuid": "^9.0.0"
+  }
+}
