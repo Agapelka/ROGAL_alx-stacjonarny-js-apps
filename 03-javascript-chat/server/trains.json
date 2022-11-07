@@ -1,0 +1,39 @@
+{
+  "trains": [
+    {
+      "id": 1,
+      "from": "Warsaw",
+      "to": "Wroclaw",
+      "date": "07.11.2022",
+      "isPremium": true
+    },
+    {
+      "id": 2,
+      "from": "Kraków",
+      "to": "Wroclaw",
+      "date": "05.11.2022",
+      "isPremium": false
+    },
+    {
+      "id": 3,
+      "from": "Gdańsk",
+      "to": "Warszawa",
+      "date": "01.11.2022",
+      "isPremium": false
+    },
+    {
+      "id": 4,
+      "from": "Kołobrzeg",
+      "to": "Wrocław",
+      "date": "10.11.2022",
+      "isPremium": true
+    },
+    {
+      "id": 5,
+      "from": "Szczecin",
+      "to": "Wrocław",
+      "date": "4.11.2022",
+      "isPremium": false
+    }
+  ]
+}

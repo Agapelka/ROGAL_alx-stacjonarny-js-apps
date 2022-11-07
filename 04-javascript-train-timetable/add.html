@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="index.html">Lista polaczen pociagow</a>
+      </li>
+      <li>
+        <a href="add.html">Dodaj polaczenie pociagow</a>
+      </li>
+    </ul>
+  </nav>
+  <div>
+    <h1>Dodaj nowe polaczenie</h1>
+    <form id="addTrainForm">
+      <div>
+        <label>
+          Skad
+          <input type="text" id="inputFrom">
+        </label>
+      </div>
+      <div>
+        <label>
+          Dokad
+          <input type="text" id="inputTo">
+        </label>
+      </div>
+      <div>
+        <label>
+          Data
+          <input type="text" id="inputDate">
+        </label>
+      </div>
+
+      <button type="submit">Dodaj połączenie</button>
+    </form>
+  </div>
+  <script src="./js/add.js" type="module"></script>
+</body>
+</html>

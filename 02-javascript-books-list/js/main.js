@@ -175,9 +175,10 @@ console.log(bookAuthors);
 
 // Wyszukaj ksiazki, gdzie author ma wiecej niz 4 znaki w swojej nazwie (uzyj .length)
 
-// const authorsMoreThanFourLetters = books.filter((book) => {
-//   return book.author.length > 4;
-// })
+const authorsMoreThanFourLetters = books.filter((book) => {
+  return book.author.length > 4;
+})
+
 
 // console.log(authorsMoreThanFourLetters);
 

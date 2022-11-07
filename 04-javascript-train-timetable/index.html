@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li>
+        <a href="index.html">Lista polaczen pociagow</a>
+      </li>
+      <li>
+        <a href="add.html">Dodaj polaczenie pociagow</a>
+      </li>
+    </ul>
+  </nav>
+  <div>
+    <h4>Wyszukiwarka polaczen</h4>
+    <form id="searchTrainForm">
+      <label>
+        Wpisz slowo kluczowe
+        <input type="text" id="searchTrainInput">
+      </label>
+      <button type="submit">Szukaj</button>
+    </form>
+  </div>
+  <div>
+    <h1>Lista pociagow</h1>
+    <ul id="trainsList"></ul>
+  </div>
+  <script src="./js/index.js" type="module"></script>
+</body>
+</html>
