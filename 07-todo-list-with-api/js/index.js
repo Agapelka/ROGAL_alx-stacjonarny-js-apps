@@ -37,9 +37,7 @@ const clearTodos = () => {
 const fetchTodos = () => {
   fetch('http://localhost:5000/todos')
     .then(res => res.json())
-    .then(data => {
-      renderTodos(data.todos);
-    })
+    .then(data => renderTodos(data.todos))
 }
 
 const handleRemoveTodos = () => {

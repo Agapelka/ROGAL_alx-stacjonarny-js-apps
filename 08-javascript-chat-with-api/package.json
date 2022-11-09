@@ -1,0 +1,24 @@
+{
+  "name": "08-javascript-chat-with-api",
+  "version": "1.0.0",
+  "description": "1. Stworz projekt chatu oparty na LS   Wymagania:   - Stworz strone glowna, zawierajaca liste wiadomosci. Kazda wiadomosc ma zawierac pole message i author.   - Stworz podstrone add, zawierajaca formularz pozwalacy na dodanie wiadomosci   - Zrob nawigacje na obu stronach, zebysmy mogli przechodzic pomiedzy stronami index i add   - Zrob wyswietlanie listy i dodawanie za pomoca localStorage",
+  "main": "index.js",
+  "source": ["index.html", "add.html", "edit.html"],
+  "type": "module",
+  "scripts": {
+    "dev": "parcel",
+    "server": "nodemon server.js",
+    "start": "npm-run-all --parallel dev server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.8.0",
+    "uuid": "^9.0.0"
+  }
+}

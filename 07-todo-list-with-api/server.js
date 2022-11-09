@@ -14,7 +14,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 // Pozwolenie serwerowi na przyjmowanie requestow z localhost
-app.use(cors());
+app.use(cors({
+  origin: '*'
+}));
 
 // API - Application Programming Interface
 // Zbior endpointow
