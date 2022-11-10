@@ -26,15 +26,27 @@ const loadMessages = (messages) => {
 }
 
 const fetchMessages = () => {
+
+  // przekazywanie kilku parametrow
+
+  // uzywanie slasha - http://localhost:5000/messages/${id}/${userId}
+  // uzywanie querystringa - http://localhost:5000/messages?id=${id}&userId=${userId}&messageAuthor=${author}
+
   fetch('http://localhost:5000/messages')
     .then(response => response.json())
     .then(data => {
-      console.log(data);
       loadMessages(data.messages)
     })
 }
 
+// Potrzebujemy przekazawac id do tej funkcji, poniewaz potrzebujemy wyslac ID na BE, zeby on wiedzial, ktory zasob ma usunac.
+
 const removeMessage = id => {
+  // przekazywanie kilku parametrow
+
+  // uzywanie slasha - http://localhost:5000/messages/${id}/${userId}
+  // uzywanie querystringa - http://localhost:5000/messages?id=${id}&userId=${userId}&messageAuthor=${author}
+
   fetch(`http://localhost:5000/messages/${id}`, {
     method: 'DELETE'
   })
@@ -91,7 +103,5 @@ const handleListClick = (event) => {
 // Jesli chcemy zrobic usuwanie/edycje/wpinanie eventow na rzeczy, ktore jeszcze nie istnieja, potrzebujemy uzyc tzw. propagacji zdarzen
 messagesList.addEventListener('click', handleListClick)
 
-
 // loadMessages(messages);
 fetchMessages();
-

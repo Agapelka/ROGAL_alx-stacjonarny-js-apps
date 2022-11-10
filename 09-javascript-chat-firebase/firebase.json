@@ -1,0 +1,6 @@
+{
+  "hosting": {
+    "firebase": "chatdamianalxstacjonarny",
+    "public": "dist"
+  }
+}

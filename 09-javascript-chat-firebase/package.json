@@ -1,0 +1,20 @@
+{
+  "name": "09-javascript-chat-firebase",
+  "version": "1.0.0",
+  "description": "",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^9.13.0",
+    "parcel": "^2.8.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}

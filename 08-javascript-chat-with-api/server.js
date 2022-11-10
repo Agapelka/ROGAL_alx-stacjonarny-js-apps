@@ -19,7 +19,12 @@ app.use(cors({
   origin: "*"
 }))
 
+// querystring jest obslugiwany przez endpoint glowny, bez parametrow
 app.get('/messages', (req, res) => {
+  // querystring odbieramy za pomoca req.query
+  // console.log(req.query);
+
+
   getMessages()
     .then(data => {
       res.status(200).send(data);
