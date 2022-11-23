@@ -1,0 +1,10 @@
+.welcome-box {
+  margin: 20px;
+  border: 1px solid black;
+  padding: 10px;
+  background: #eee;
+}
+
+.highlighted {
+  background: lightpink;
+}
