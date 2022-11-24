@@ -35,3 +35,5 @@ export default TodoForm
 // - ChatList
 // - Button
 // - Input
+
+// * Zrob obsluge chat przez firebase
