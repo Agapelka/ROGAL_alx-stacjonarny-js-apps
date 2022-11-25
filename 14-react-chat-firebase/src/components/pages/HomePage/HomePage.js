@@ -1,13 +1,12 @@
-import { useEffect, useState, useContext } from 'react';
-
-import { GlobalContext } from 'contexts/global';
+import { useEffect, useState } from 'react';
+import { ref, onValue, set, remove } from "firebase/database";
+import { database } from "utils/firebase";
 
 import ChatForm from 'components/sections/ChatForm/ChatForm';
 import ChatMessages from 'components/sections/ChatMessages/ChatMessages';
 import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 
-import { getMessages, postMessage, removeMessage } from 'utils/http'
-// Wydziel funkcje fetchMessages i postMessage do pliku http.js
+const messagesRef = ref(database, '/messages');
 
 function HomePage() {
   const [messages, setMessages] = useState([]);
@@ -36,14 +35,19 @@ function HomePage() {
 
   // - Jesli zmienna theme jest ustawiona na dark to zmien styl nawigacji na ciemny (background musi byc ciemny a linki musza byc jasne)
 
-
-
   useEffect(() => {
-    getMessages()
-      .then(data => {
-        // jesli chcemy odwrocic tablice, to potrzebujemy uzyc metody tablicowej .reverse()
-        setMessages(data.reverse());
+    onValue(messagesRef, (data) => {
+      const messages = data.toJSON();
+
+      if(!messages) return;
+      // Zeby miec ID w obiekcie, ktory przychodzi z firebase, potrzebujemy dodac id (ktory jest kluczem obiektu), do kazdego obiektu pod pozycja id
+      const messagesWithId = Object.keys(messages).map(key => {
+        messages[key].id = key; //do kazdego obiektu doklejam klucz id
+        return messages[key];
       })
+
+      setMessages(messagesWithId)
+    })
   }, [])
 
   const handleAuthorInputChange = (event) => {
@@ -60,22 +64,9 @@ function HomePage() {
     // zasady, kiedy formularz jest prawidlowo wypelniony
     const valid = authorInputValue.length > 0 && messageInputValue.length > 2;
 
-    // if(authorInputValue.length === 0) {
-    //   setIsAuthorInputError(true);
-    // } else {
-    //   setIsAuthorInputError(false);
-    // }
-
-    // Skrot od tego if/else co mamy powyzej
     setIsAuthorInputError(authorInputValue.length === 0)
 
-    // if(messageInputValue.length <= 2) {
-    //   setIsMessageInputError(true);
-    // } else {
-    //   setIsMessageInputError(false);
-    // }
 
-    // Skrot od tego if/else co mamy powyzej
     setIsMessageInputError(messageInputValue.length <= 2)
 
     if(!valid) {
@@ -85,7 +76,6 @@ function HomePage() {
     const generatedId = Date.now()
 
     const newMessage = {
-      id: generatedId,
       author: authorInputValue,
       message: messageInputValue
     }
@@ -94,8 +84,7 @@ function HomePage() {
 
     // dodanie do listy
     setMessages(newMessages);
-    // wyslanie do json-server
-    postMessage(newMessage);
+    set(ref(database, 'messages/' + generatedId), newMessage)
 
     setAuthorInputValue('')
     setMessageInputValue('');
@@ -106,7 +95,8 @@ function HomePage() {
       return message.id !== id
     })
 
-    removeMessage(id)
+    remove(ref(database, 'messages/' + id))
+
     setMessages(filteredMessages)
   }
 

@@ -14,11 +14,11 @@ function MainTemplate(props) {
 
   useEffect(() => {
     // jesli uzytkownik juz sie nie laduje i nie zostal zaladowany przez LS i nie jestem na podstronie login, to wroc mnie do podstrony login
-    if(!state.isUserLoading && !state.user && location.pathname !== '/login') {
+    if(!state.isUserLoading && !state.user && (location.pathname !== '/login' || location.pathname !== '/register')) {
       navigate('/login');
     }
 
-    if(!state.isUserLoading && state.user && location.pathname === '/login') {
+    if(!state.isUserLoading && state.user && (location.pathname === '/login' || location.pathname === '/register')) {
       navigate('/');
     }
 

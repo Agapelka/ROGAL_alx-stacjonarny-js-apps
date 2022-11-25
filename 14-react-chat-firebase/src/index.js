@@ -13,6 +13,7 @@ import HomePage from 'components/pages/HomePage/HomePage';
 import EditPage from 'components/pages/EditPage/EditPage';
 import AboutPage from 'components/pages/AboutPage/AboutPage';
 import LoginPage from 'components/pages/LoginPage/LoginPage';
+import RegisterPage from 'components/pages/RegisterPage/RegisterPage';
 
 // To jest obiekt konfiguracyjny routingu, ktory mowi nam na ktorej sciezce, ma odpalic ktory komponent
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <LoginPage />
+  },
+  {
+    path: '/register',
+    element: <RegisterPage />
   }
 ])
 
