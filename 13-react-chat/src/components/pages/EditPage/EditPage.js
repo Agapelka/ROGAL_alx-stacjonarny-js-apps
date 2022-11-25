@@ -21,7 +21,10 @@ function EditPage() {
   const navigate = useNavigate();
 
   const [authorInputValue, setAuthorInputValue] = useState('');
+  const [isAuthorInputError, setIsAuthorInputError] = useState(false);
+
   const [messageInputValue, setMessageInputValue] = useState('');
+  const [isMessageInputError, setIsMessageInputError] = useState(false);
   // aby znalezc pod jaka nazwa przychodzi mi parametr, musi sprawdzic konfiguracje naszego routera
   // console.log(params);
 
@@ -39,6 +42,31 @@ function EditPage() {
 
   const handleSubmit = event => {
     event.preventDefault();
+
+    // zasady, kiedy formularz jest prawidlowo wypelniony
+    const valid = authorInputValue.length > 0 && messageInputValue.length > 2;
+
+    // if(authorInputValue.length === 0) {
+    //   setIsAuthorInputError(true);
+    // } else {
+    //   setIsAuthorInputError(false);
+    // }
+
+    // Skrot od tego if/else co mamy powyzej
+    setIsAuthorInputError(authorInputValue.length === 0)
+
+    // if(messageInputValue.length <= 2) {
+    //   setIsMessageInputError(true);
+    // } else {
+    //   setIsMessageInputError(false);
+    // }
+
+    // Skrot od tego if/else co mamy powyzej
+    setIsMessageInputError(messageInputValue.length <= 2)
+
+    if(!valid) {
+      return;
+    }
 
     // W przypadku operacji PUT, nie potrzebuje przekazywac id w body, poniewaz ID jest zawarte w parametrze do fetcha
     const editedMessage = {
@@ -72,6 +100,8 @@ function EditPage() {
         handleAuthorInputChange={handleAuthorInputChange}
         messageInputValue={messageInputValue}
         authorInputValue={authorInputValue}
+        isMessageError={isMessageInputError}
+        isAuthorError={isAuthorInputError}
       />
 
       <Footer />

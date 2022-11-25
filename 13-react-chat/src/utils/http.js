@@ -27,3 +27,10 @@ export const getMessages = () => {
   return fetch('http://localhost:5000/messages')
     .then((res) => res.json())
 }
+
+export const removeMessage = (idToRemove) => {
+  // jesli nie potrzebujemy robic .then() na promisie, to nie potrzebujemy robic return
+  fetch(`http://localhost:5000/messages/${idToRemove}`, {
+    method: 'DELETE'
+  })
+}
